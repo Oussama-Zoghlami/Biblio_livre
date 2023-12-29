@@ -32,8 +32,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**")
                         .permitAll()
                         .requestMatchers("/api/v1/admin/**").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/student/**").hasAnyAuthority(Role.STUDENT.name())
-                        .requestMatchers("/api/v1/teacher/**").hasAnyAuthority(Role.TEACHER.name())
+                        .requestMatchers("/api/v1/membre/**").hasAnyAuthority(Role.MEMBRE.name())
+                        .requestMatchers("/api/v1/bibliothecaire/**").hasAnyAuthority(Role.BIBLIOTHECAIRE.name())
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

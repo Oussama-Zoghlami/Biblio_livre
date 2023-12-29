@@ -1,7 +1,7 @@
 package com.comeback.securityauthback.entities;
 
 public enum Role {
-    STUDENT,
+    MEMBRE,
     ADMIN,
-    TEACHER
+    BIBLIOTHECAIRE
 }

@@ -8,6 +8,7 @@ import com.comeback.securityauthback.entities.User;
 import com.comeback.securityauthback.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,6 +18,7 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
+    @PreAuthorize("permitAll()")
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@RequestBody SignUpRequest signUpRequest) {
         System.out.println("Received signup request: " + signUpRequest);
