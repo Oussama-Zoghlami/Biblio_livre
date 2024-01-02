@@ -24,6 +24,8 @@ public class User  implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role ;
+    @ManyToOne
+    Emprunt emprunt;
 
 
     @Override
