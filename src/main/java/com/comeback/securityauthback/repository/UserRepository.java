@@ -12,5 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByRole(Role role);
     Optional<User> findById(Integer id);
-    List<User> findByEmprunt_IdEmprunt(Integer idEmprunt);
+
+    Optional<User> findByEmprunt_IdEmprunt(Integer idEmprunt);
 }

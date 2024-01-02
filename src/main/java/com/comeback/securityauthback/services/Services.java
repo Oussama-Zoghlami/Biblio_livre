@@ -23,6 +23,7 @@ public interface Services {
     public void affectLivreEmprunt(Integer idLivre, Integer idEmprunt);
     public void affectNotificationUser(Integer idNotification, Integer idUser);
     public void addReservationWithParams(Long userId, Integer livreId, LocalDate dateDebut , LocalDate dateFin);
+    public User getUserByEmpruntId(Integer idEmprunt);
 
 
 

@@ -119,6 +119,17 @@ public class Controllers {
             return new ResponseEntity<>("Error adding reservation: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    @PreAuthorize("permitAll()")
+    @GetMapping("/byEmprunt/{idEmprunt}")
+    public ResponseEntity<User> getUserByEmpruntId(@PathVariable Integer idEmprunt) {
+        User user = services.getUserByEmpruntId(idEmprunt);
+
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 

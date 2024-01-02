@@ -129,6 +129,9 @@ public class ServicesImpl implements Services {
 
         reservationRepo.save(reservation);
     }
+    public User getUserByEmpruntId(Integer idEmprunt) {
+        return userRepository.findByEmprunt_IdEmprunt(idEmprunt).orElse(null);
+    }
 
 
 }
