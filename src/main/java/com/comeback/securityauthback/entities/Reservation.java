@@ -6,25 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "emprunt")
-public class Emprunt {
+@Table(name = "reservation")
+public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idemprunt")
-    private Integer idEmprunt;
+    @Column(name = "id_reservation")
+    private Integer idReservation;
     @Column(name = "datedebut")
     private LocalDate dateDebut;
     @Column(name = "datefin")
     private LocalDate dateFin;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "emprunt")
-    private Set<User> users;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "emprunt")
-    private Set<Livre> livres;
+    @ManyToOne
+    User user;
+    @ManyToOne
+    Livre livre;
 
 }

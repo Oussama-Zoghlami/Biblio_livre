@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,6 +27,10 @@ public class User  implements UserDetails {
     private Role role ;
     @ManyToOne
     Emprunt emprunt;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    private Set<Reservation> reservations;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    private Set<Notification> notifications;
 
 
     @Override
